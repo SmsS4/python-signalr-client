@@ -13,8 +13,9 @@ from .transports import Transport
 class Connection(object):
     protocol_version = '1.5'
 
-    def __init__(self, url, session=None):
+    def __init__(self, url, session=None, qs=None):
         self.url = url
+        self.qs = {} if not qs else qs
         self.__hubs = {}
         self.__send_counter = -1
         self.hub = None
